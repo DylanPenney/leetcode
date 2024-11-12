@@ -1,23 +1,21 @@
-# The guess API is already defined for you.
-# @param num, your guess
-# @return -1 if num is higher than the picked number
-#          1 if num is lower than the picked number
-#          otherwise return 0
-# def guess(num: int) -> int:
-
+# Time Complexity: O(logN)
+# Space Complexity: O(1)
 class Solution:
     def guessNumber(self, n: int) -> int:
-        l = 1
+        l = 0
         r = n
         while l <= r:
             mid = l + (r-l)//2
-            g = guess(mid)
-            
-            print(l, mid, r, g)
-            
-            if g == 0:
+
+            res = guess(mid)
+            if res == 0:
+                # We have found the correct number:
                 return mid
-            elif g > 0: # Lower
-                l = mid+1
+            
+            elif res == 1:
+                # Our guess is too low, move l pointer
+                l = mid + 1
+                
             else:
-                r = mid-1
+                # Our guess is to high, move r pointer
+                r = mid - 1
