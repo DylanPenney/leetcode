@@ -1,15 +1,17 @@
+# Space Complexity: O(n)
+# Time Complexity: O(n)
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         res = [1] * len(nums)
 
-        left = 1
+        prefix = 1
         for i in range(len(nums)):
-            res[i] = res[i] * left
-            left = left * nums[i]
+            res[i] *= prefix
+            prefix *= nums[i]
 
-        right = 1
-        for i in range(len(nums)-1, -1, -1):
-            res[i] = res[i] * right
-            right = right * nums[i]
+        postfix = 1
+        for j in range(len(nums) - 1, -1, -1):
+            res[j] *= postfix
+            postfix *= nums[j]
 
         return res
