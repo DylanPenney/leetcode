@@ -1,11 +1,15 @@
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        rightsum = sum(nums)
         leftsum = 0
-        for i in range (0, len(nums)):
-            leftsum += nums[i]
-            if leftsum == rightsum:
-                return i
-            rightsum -= nums[i]
+        rightsum = sum(nums)
+
+        for index, num in enumerate(nums):
+            if leftsum + num == rightsum:
+                return index
+
+            leftsum += num
+            rightsum -= num
+
         return -1
-        
