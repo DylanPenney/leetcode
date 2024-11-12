@@ -1,13 +1,13 @@
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        if len(s) > len(t):
-            return False
-        if len(s) == 0:
-            return True
-        pointer = 0
-        for i in t:
-            if i == s[pointer]:
-                pointer+=1
-            if pointer >= len(s):
-                return True
-        return False
+        l = 0 # pointer for current position in s
+        r = 0 # pointer for current position in t
+
+        while l < len(s) and r < len(t):
+            if s[l] == t[r]:
+                l += 1
+            r += 1
+
+        return l == len(s)
