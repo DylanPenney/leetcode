@@ -1,23 +1,22 @@
-# Time Complexity: O(n)
-# Space Complexity: O(n)
+# Time Complexity: O(nlogn)
+# Space Complexity: O(1)
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
-        hash_map = {}
+        l = 0
+        r = len(nums) - 1
 
         res = 0
 
-        for n in nums:
-            if n in hash_map:
-                # Pair found, decrement counter and add to result
-                hash_map[n] -= 1
+        nums.sort()
+
+        while l < r:
+            lr_sum = nums[l] + nums[r]
+            if lr_sum == k:
                 res += 1
-
-                # remove from hashmap so future occurances don't get messed up
-                if hash_map[n] == 0:
-                    del hash_map[n]
-
+                l += 1
+                r -= 1
+            elif lr_sum > k:
+                r -= 1
             else:
-                # Number needed and the amount needed
-                hash_map[k-n] = hash_map.get(k-n, 0) + 1
-
+                l += 1
         return res
