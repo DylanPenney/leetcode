@@ -1,5 +1,5 @@
 # Time Complexity: O(n)
-# Space Complexity: 
+# Space Complexity: O(n)
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
 
