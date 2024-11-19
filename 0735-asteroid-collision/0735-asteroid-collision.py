@@ -5,7 +5,7 @@ class Solution:
         stack = []
 
         for astrd in asteroids:
-            while stack and astrd < 0 < stack[-1]:
+            while stack and astrd < 0 and stack[-1] > 0:
                 if stack[-1] < -1 * astrd:
                     # right-moving asteroid explodes, move onto next
                     stack.pop()
