@@ -12,6 +12,6 @@ class Solution:
                 stackI, stackT = stack.pop()
                 res[stackI] = index - stackI
 
-            stack.append((index, temperature))
+            stack.append((index, temp))
 
         return res
