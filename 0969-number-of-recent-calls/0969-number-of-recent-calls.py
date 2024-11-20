@@ -1,3 +1,5 @@
+# Time Complexity: O(logn)
+# Spaec Complexity: O(n)
 class RecentCounter:
 
     def __init__(self):
