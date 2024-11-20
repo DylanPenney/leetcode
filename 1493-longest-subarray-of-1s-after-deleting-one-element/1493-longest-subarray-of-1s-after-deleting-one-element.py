@@ -1,3 +1,5 @@
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
         k = 1
@@ -14,6 +16,5 @@ class Solution:
                 l += 1
 
             r += 1
-
 
         return r - l - 1
