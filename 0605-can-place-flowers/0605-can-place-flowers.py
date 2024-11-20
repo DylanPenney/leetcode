@@ -7,7 +7,6 @@ class Solution:
             # can always place 0 flowers
             return True
 
-
         length = len(flowerbed)
         for i in range(length):
 
