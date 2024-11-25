@@ -13,7 +13,7 @@ class Solution:
         dp[1] = 2
         dp[2] = 5
 
-        for i in range(3, len(dp)):
-            dp[i] = (dp[i-2]*2+dp[i-3]) % MOD
+        for i in range(3, n):
+            dp[i] = (dp[i-1]*2+dp[i-3]) % MOD
 
         return dp[-1]
